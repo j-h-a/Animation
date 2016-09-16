@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		696D585C1D8B75C500A0FD48 /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696D585B1D8B75C500A0FD48 /* Curve.swift */; };
+		696D585E1D8B75D300A0FD48 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696D585D1D8B75D300A0FD48 /* Interpolation.swift */; };
+		696D58601D8B75FD00A0FD48 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696D585F1D8B75FD00A0FD48 /* Animation.swift */; };
 		69AE76A21D8B6B00001B501E /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69AE76981D8B6B00001B501E /* Animation.framework */; };
 		69AE76A71D8B6B00001B501E /* AnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE76A61D8B6B00001B501E /* AnimationTests.swift */; };
 		69AE76A91D8B6B00001B501E /* Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 69AE769B1D8B6B00001B501E /* Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +26,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		696D585B1D8B75C500A0FD48 /* Curve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
+		696D585D1D8B75D300A0FD48 /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
+		696D585F1D8B75FD00A0FD48 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		69AE76981D8B6B00001B501E /* Animation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Animation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69AE769B1D8B6B00001B501E /* Animation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		69AE769C1D8B6B00001B501E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +79,9 @@
 			children = (
 				69AE769B1D8B6B00001B501E /* Animation.h */,
 				69AE769C1D8B6B00001B501E /* Info.plist */,
+				696D585B1D8B75C500A0FD48 /* Curve.swift */,
+				696D585D1D8B75D300A0FD48 /* Interpolation.swift */,
+				696D585F1D8B75FD00A0FD48 /* Animation.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					69AE76971D8B6B00001B501E = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					69AE76A01D8B6B00001B501E = {
@@ -196,6 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				696D585E1D8B75D300A0FD48 /* Interpolation.swift in Sources */,
+				696D58601D8B75FD00A0FD48 /* Animation.swift in Sources */,
+				696D585C1D8B75C500A0FD48 /* Curve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +333,7 @@
 		69AE76AD1D8B6B00001B501E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -331,6 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.me.abbott.Animation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -338,6 +353,7 @@
 		69AE76AE1D8B6B00001B501E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -356,6 +372,7 @@
 		69AE76B01D8B6B00001B501E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AnimationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.me.abbott.AnimationTests;
@@ -367,6 +384,7 @@
 		69AE76B11D8B6B00001B501E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = AnimationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.me.abbott.AnimationTests;
@@ -394,6 +412,7 @@
 				69AE76AE1D8B6B00001B501E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69AE76AF1D8B6B00001B501E /* Build configuration list for PBXNativeTarget "AnimationTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +421,7 @@
 				69AE76B11D8B6B00001B501E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
