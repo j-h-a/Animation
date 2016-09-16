@@ -101,12 +101,12 @@ open class Animation
 			// If the animation is finished...
 			if(animComplete || !animContinue)
 			{
+				// Remove the animation
+				animationItems.removeValue(forKey: key)
 				// Call the completion block
 				if let completion = item.completion {
 					completion(animComplete)
 				}
-				// Remove the animation
-				animationItems.removeValue(forKey: key)
 			}
 		}
 	}
