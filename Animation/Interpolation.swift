@@ -22,6 +22,14 @@ extension CGPoint: Interpolatable {
 		return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 	}
 }
+extension CGRect: Interpolatable {
+	public static func *(lhs: CGRect, rhs: Double) -> CGRect {
+		return CGRect(x: lhs.origin.x * CGFloat(rhs), y: lhs.origin.y * CGFloat(rhs), width: lhs.width * CGFloat(rhs), height: lhs.height * CGFloat(rhs))
+	}
+	public static func +(lhs: CGRect, rhs: CGRect) -> CGRect {
+		return CGRect(x: lhs.origin.x + rhs.origin.x, y: lhs.origin.y + rhs.origin.y, width: lhs.width + rhs.width, height: lhs.height + rhs.height)
+	}
+}
 extension UIColor: Interpolatable {
 	public static func *(lhs: UIColor, rhs: Double) -> Self {
 		var r = CGFloat(0), g = CGFloat(0), b = CGFloat(0), a = CGFloat(0)
