@@ -24,25 +24,31 @@ extension CGPoint: Interpolatable {
 }
 extension CGRect: Interpolatable {
 	public static func *(lhs: CGRect, rhs: Double) -> CGRect {
-		return CGRect(x: lhs.origin.x * CGFloat(rhs), y: lhs.origin.y * CGFloat(rhs), width: lhs.width * CGFloat(rhs), height: lhs.height * CGFloat(rhs))
+		return CGRect(x: lhs.origin.x * CGFloat(rhs), y: lhs.origin.y * CGFloat(rhs), width: lhs.size.width * CGFloat(rhs), height: lhs.height * CGFloat(rhs))
 	}
 	public static func +(lhs: CGRect, rhs: CGRect) -> CGRect {
-		return CGRect(x: lhs.origin.x + rhs.origin.x, y: lhs.origin.y + rhs.origin.y, width: lhs.width + rhs.width, height: lhs.height + rhs.height)
+		return CGRect(x: lhs.origin.x + rhs.origin.x, y: lhs.origin.y + rhs.origin.y, width: lhs.size.width + rhs.size.width, height: lhs.size.height + rhs.size.height)
 	}
 }
 extension UIColor: Interpolatable {
-	public static func *(lhs: UIColor, rhs: Double) -> Self {
+	@nonobjc public static func *(lhs: UIColor, rhs: Double) -> Self {
 		var r = CGFloat(0), g = CGFloat(0), b = CGFloat(0), a = CGFloat(0)
 		let t = CGFloat(rhs)
 		lhs.getRed(&r, green: &g, blue: &b, alpha: &a)
-		return self.init(red: r * t, green: g * t, blue: b * t, alpha: a * t)
+		return self.init(red: min(max(r * t, 0.0), 1.0),
+					   green: min(max(g * t, 0.0), 1.0),
+					    blue: min(max(b * t, 0.0), 1.0),
+					   alpha: min(max(a * t, 0.0), 1.0))
 	}
-	public static func +(lhs: UIColor, rhs: UIColor) -> Self {
+	@nonobjc public static func +(lhs: UIColor, rhs: UIColor) -> Self {
 		var lhsR = CGFloat(0), lhsG = CGFloat(0), lhsB = CGFloat(0), lhsA = CGFloat(0)
 		var rhsR = CGFloat(0), rhsG = CGFloat(0), rhsB = CGFloat(0), rhsA = CGFloat(0)
 		lhs.getRed(&lhsR, green: &lhsG, blue: &lhsB, alpha: &lhsA)
 		rhs.getRed(&rhsR, green: &rhsG, blue: &rhsB, alpha: &rhsA)
-		return self.init(red: lhsR + rhsR, green: lhsG + rhsG, blue: lhsB + rhsB, alpha: lhsA + rhsA)
+		return self.init(red: min(max(lhsR + rhsR, 0.0), 1.0),
+		               green: min(max(lhsG + rhsG, 0.0), 1.0),
+		                blue: min(max(lhsB + rhsB, 0.0), 1.0),
+		               alpha: min(max(lhsA + rhsA, 0.0), 1.0))
 	}
 }
 

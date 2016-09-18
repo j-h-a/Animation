@@ -12,7 +12,7 @@ import QuartzCore
 public typealias AnimationUpdate = (Double) -> Bool
 public typealias AnimationCompletion = (Bool) -> Void
 
-public protocol Animatable {
+public protocol Animatable: class {
 	func update(by timeInterval: Double) -> Void
 }
 
@@ -31,15 +31,20 @@ private class AnimationItem
 	}
 }
 
+private struct AnimatableProxy
+{
+	weak var target: Animatable?
+}
+
 open class Animation
 {
 	fileprivate static var sharedInstance = Animation()
 
 	fileprivate var animationItems = [String : AnimationItem]()
 	fileprivate let displayLink: CADisplayLink?
-	fileprivate var toAdd = [Animatable]()
-	fileprivate var toRemove = [Animatable]()
-	fileprivate var animatables = [Animatable]()
+	fileprivate var toAdd = [AnimatableProxy]()
+	fileprivate var toRemove = [AnimatableProxy]()
+	fileprivate var animatables = [AnimatableProxy]()
 
 	fileprivate class Updater
 	{
@@ -55,7 +60,7 @@ open class Animation
 		displayLink = CADisplayLink(target: updater, selector: #selector(Updater.displayLinkUpdate(_:)))
 		displayLink?.isPaused = true
 		displayLink?.frameInterval = 1
-		displayLink?.add(to: RunLoop.current, forMode: RunLoopMode.commonModes)
+		displayLink?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
 		updater.animationInstance = self
 	}
 
@@ -91,7 +96,7 @@ open class Animation
 			// Call the update block with the current progress of the animation
 			if(item.time >= item.endTime)
 			{
-				item.update(1.0)
+				_ = item.update(1.0)
 				animComplete = true
 			}
 			else
@@ -134,6 +139,26 @@ open class Animation
 		//	animatable.update by timeDelta
 		//}
 		//}
+	}
+
+	open static func add(animatable: Animatable)
+	{
+		// Remove this animatable if already present
+		remove(animatable: animatable)
+		// Add the animatable, wrapped in a weak proxy
+		sharedInstance.toAdd.append(AnimatableProxy(target: animatable))
+		sharedInstance.displayLink?.isPaused = false
+	}
+
+	open static func remove(animatable: Animatable)
+	{
+		// Linear-search the animatables
+		for proxy in sharedInstance.animatables {
+			// Remove matching (or nil) objects
+			if (proxy.target == nil) || (proxy.target === animatable) {
+				sharedInstance.toRemove.append(proxy)
+			}
+		}
 	}
 
 	open static func animate(identifier: String,
