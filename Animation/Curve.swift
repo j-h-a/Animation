@@ -61,13 +61,11 @@ private func curveBell(_ t: Double) -> Double {
 private func curveParabolicAcceleration(_ t: Double) -> Double {
 	switch t {
 	case _ where t <= 0.0: return 0.0
-	case _ where t >= 1.0: return 1.0
 	default: return t * t // Simple t-squared.
 	}
 }
 private func curveParabolicDeceleration(_ t: Double) -> Double {
 	switch t {
-	case _ where t <= 0.0: return 0.0
 	case _ where t >= 1.0: return 1.0
 	default: // Simple 1 - (1 - t)^2
 		let oneMinusT = 1.0 - t
@@ -76,8 +74,6 @@ private func curveParabolicDeceleration(_ t: Double) -> Double {
 }
 private func curveParabolicPeak(_ t: Double) -> Double {
 	switch t {
-	case _ where t <= 0.0: return 0.0
-	case _ where t >= 1.0: return 0.0
 	case _ where t <= 0.5: return curveParabolicDeceleration(2 * t) // From 0.0 to 0.5 same as a full parabolic deceleration
 	default: return curveParabolicDeceleration(2 - (2 * t)) // A reversed parabolic deceleration from 0.5 to 1.0
 	}
