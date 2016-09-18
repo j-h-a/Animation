@@ -230,4 +230,45 @@ class AnimationUITests: XCTestCase {
 		waitForExpectations(timeout: 5)
 		XCTAssertEqual(finishedCount, 1, "exactly one of the animations should have finished")
 	}
+
+	func testAnimationRetriggerItself() {
+
+		var a1UpdateCount = 0
+		var a1CompletedCount = 0
+		var a2UpdateCount = 0
+		var a2CompletedCount = 0
+		let a2Completed = expectation(description: "retriggered animation completed")
+
+		Animation.animate(identifier: "x", duration: 0.1,
+			update: { progress in
+
+				a1UpdateCount += 1
+
+				return progress > 0.0 ? false : true
+			},
+			completion: { finished in
+
+				a1CompletedCount += 1
+
+				// Re-trigger animation with the same identifier
+				Animation.animate(identifier: "x", duration: 0.1,
+					update: { progress in
+
+						a2UpdateCount += 1
+
+						return progress > 0.0 ? false : true
+					},
+					completion: { finished in
+
+						a2CompletedCount += 1
+						a2Completed.fulfill()
+					})
+			})
+
+		waitForExpectations(timeout: 5)
+		XCTAssertEqual(a1UpdateCount, 2, "first iteration should have updated exactly twice")
+		XCTAssertEqual(a2UpdateCount, 2, "retriggered iteration should have updated exactly twice")
+		XCTAssertEqual(a1CompletedCount, 1, "first iteration should have completion called exactly once")
+		XCTAssertEqual(a2CompletedCount, 1, "retriggered iteration should have completion called exactly once")
+	}
 }
