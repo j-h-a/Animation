@@ -33,7 +33,7 @@ class CurveTests: XCTestCase {
 			let aft = curve[inputs[i] + (gradientLength / 2)]
 			let gradient = (aft - bef) / gradientLength
 			XCTAssertEqualWithAccuracy(output, expectedOutputs[i], accuracy: Double(FLT_EPSILON), "output for \(inputs[i]) should be \(expectedOutputs[i])")
-			XCTAssertEqualWithAccuracy(gradient, expectedGradients[i], accuracy: 10 * gradientLength, "gradient for \(inputs[i]) should be \(expectedGradients[i])")
+			XCTAssertEqualWithAccuracy(gradient, expectedGradients[i], accuracy: 3 * gradientLength, "gradient for \(inputs[i]) should be \(expectedGradients[i])")
 		}
 	}
 
@@ -102,5 +102,25 @@ class CurveTests: XCTestCase {
 		             inputs:            [-1.5, 0.0, 0.2 , 0.3 , 0.5, 0.7 , 0.8 , 1.0, 2.5],
 		             expectedOutputs:   [ 0.0, 0.0, 0.16, 0.36, 1.0, 0.36, 0.16, 0.0, 0.0],
 		             expectedGradients: [ 0.0, 0.0, 1.6 , 2.4 , 0.0,-2.4 ,-1.6 , 0.0, 0.0])
+	}
+
+	func testHermiteCurve() {
+		
+		performTests(on: HermiteCurve(gradientIn: 2, gradientOut: 1),
+		             inputs:            [-1.0, 0.0, 0.2  , 0.5  , 0.8  , 1.0, 2.0],
+		             expectedOutputs:   [-2.0, 0.0, 0.328, 0.625, 0.832, 1.0, 2.0],
+		             expectedGradients: [ 2.0, 2.0, 1.32 , 0.75 , 0.72 , 1.0, 1.0])
+		performTests(on: HermiteCurve(gradientIn: 0.5, gradientOut: 3),
+		             inputs:            [-1.0, 0.0, 0.2  , 0.5   , 0.8  , 1.0, 2.0],
+		             expectedOutputs:   [-0.5, 0.0, 0.072, 0.1875, 0.528, 1.0, 4.0],
+		             expectedGradients: [ 0.5, 0.5, 0.28 , 0.625 , 1.78 , 3.0, 3.0])
+		performTests(on: HermiteCurve(gradientIn: 4, gradientOut: 4),
+		             inputs:            [-1.0, 0.0, 0.2  , 0.5, 0.8  , 1.0, 2.0],
+		             expectedOutputs:   [-4.0, 0.0, 0.488, 0.5, 0.512, 1.0, 5.0],
+		             expectedGradients: [ 4.0, 4.0, 1.12 ,-0.5, 1.12 , 4.0, 4.0])
+		performTests(on: HermiteCurve(gradientIn: -1, gradientOut: -1),
+		             inputs:            [-1.0, 0.0, 0.1  , 0.2  , 0.5, 0.8  , 0.9  , 1.0, 2.0],
+		             expectedOutputs:   [ 1.0, 0.0,-0.044, 0.008, 0.5, 0.992, 1.044, 1.0, 0.0],
+		             expectedGradients: [-1.0,-1.0, 0.08 , 0.92 , 2.0, 0.92 , 0.08 ,-1.0,-1.0])
 	}
 }

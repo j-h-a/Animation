@@ -112,15 +112,38 @@ open class Curve: Parametric {
 	}
 }
 
-class HermiteCurve: Parametric {
-	subscript(t: Double) -> Double {
-		// TODO
-		return 0
+open class HermiteCurve: Parametric {
+
+	var gradientIn: Double
+	var gradientOut: Double
+
+	public init(gradientIn: Double, gradientOut: Double) {
+		self.gradientIn = gradientIn
+		self.gradientOut = gradientOut
+	}
+
+	public subscript(t: Double) -> Double {
+		switch t {
+		case _ where t <= 0.0: return t * gradientIn
+		case _ where t >= 1.0: return ((t - 1.0) * gradientOut) + 1.0
+		default:
+			// Calculate the hermite functions h1-h4.
+			// h1 is multiplied by zero at the end, so is ommitted but left in comments for clarity
+			let _t2  =    t * t
+			let _t3  =  _t2 * t
+			let _3t2 =    3 * _t2
+			let _2t3 =    2 * _t3
+			//let h1 = _2t3 - _3t2      + 1
+			let h2   = _3t2 - _2t3
+			let h3   =  _t3 - (2 * _t2) + t
+			let h4   =  _t3 - _t2
+			return /* (h1 * 0) + */ (h2 * 1) + (h3 * gradientIn) + (h4 * gradientOut)
+		}
 	}
 }
 
-class CompositeCurve: Parametric {
-	subscript(t: Double) -> Double {
+open class CompositeCurve: Parametric {
+	public subscript(t: Double) -> Double {
 		// TODO
 		return 0
 	}
