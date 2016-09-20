@@ -60,12 +60,13 @@ precedencegroup InterpolationPrecedence {
 	associativity: left
 	higherThan: RangeFormationPrecedence
 }
-infix operator --> : InterpolationPrecedence
+infix operator <~~ : InterpolationPrecedence
+infix operator ~~> : InterpolationPrecedence
 
-public func --> <T: Interpolatable>(from: T, alpha: Double) -> (T, Double) {
+public func <~~ <T: Interpolatable>(from: T, alpha: Double) -> (T, Double) {
 	return (from, alpha)
 }
 
-public func --> <T: Interpolatable>(lhs: (T, Double), rhs: T) -> T {
+public func ~~> <T: Interpolatable>(lhs: (T, Double), rhs: T) -> T {
 	return lerp(from: lhs.0, to: rhs, alpha: lhs.1)
 }

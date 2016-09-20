@@ -31,7 +31,7 @@ class InterpolationTests: XCTestCase {
 			]
 
 		for data in testData {
-			let result = data.p1 --> data.alpha --> data.p2
+			let result = data.p1 <~~ data.alpha ~~> data.p2
 			XCTAssertEqualWithAccuracy(result.x, data.eX, accuracy: CGFloat(FLT_EPSILON))
 			XCTAssertEqualWithAccuracy(result.y, data.eY, accuracy: CGFloat(FLT_EPSILON))
 		}
@@ -57,7 +57,7 @@ class InterpolationTests: XCTestCase {
 			]
 
 		for data in testData {
-			let result = data.r1 --> data.alpha --> data.r2
+			let result = data.r1 <~~ data.alpha ~~> data.r2
 			XCTAssertEqualWithAccuracy(result.origin.x, data.eX, accuracy: CGFloat(FLT_EPSILON))
 			XCTAssertEqualWithAccuracy(result.origin.y, data.eY, accuracy: CGFloat(FLT_EPSILON))
 			XCTAssertEqualWithAccuracy(result.size.width, data.eW, accuracy: CGFloat(FLT_EPSILON))
@@ -81,7 +81,7 @@ class InterpolationTests: XCTestCase {
 			]
 
 		for data in testData {
-			let result = data.c1 --> data.alpha --> data.c2
+			let result = data.c1 <~~ data.alpha ~~> data.c2
 			var resultR = CGFloat(0), resultG = CGFloat(0), resultB = CGFloat(0), resultA = CGFloat(0)
 			result.getRed(&resultR, green: &resultG, blue: &resultB, alpha: &resultA)
 			XCTAssertEqualWithAccuracy(resultR, data.eR, accuracy: CGFloat(FLT_EPSILON))
