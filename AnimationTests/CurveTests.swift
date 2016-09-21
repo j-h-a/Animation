@@ -289,6 +289,10 @@ class CurveTests: XCTestCase {
 
 	func testCompositeCurve() {
 		let testData: [(fmt: String, args: [Any], i: [Double], eO: [Double], eG: [Double])] = [
+			(fmt: "H"    , args: [ (endPoint: 1.0, endValue: 1.0, gradientIn: 1.0, gradientOut: 1.0) ],
+				i:  [-0.5, 0.0, 0.2, 0.5, 0.8, 1.0, 1.5],
+				eO: [-0.5, 0.0, 0.2, 0.5, 0.8, 1.0, 1.5],
+				eG: [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]),
 			(fmt: "SEEE" , args: [ 0.5,
 			                       (endPoint: 0.333333333333, endValue: 1.0),
 			                       (endPoint: 0.666666666667, endValue: 0.0),
