@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691979DD1D934A73005463A4 /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69AE76981D8B6B00001B501E /* Animation.framework */; };
+		691979DE1D934A73005463A4 /* Animation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69AE76981D8B6B00001B501E /* Animation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		694E8B3F1D8DC1F00043100B /* InterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E8B3E1D8DC1F00043100B /* InterpolationTests.swift */; };
 		694E8B471D8E06F70043100B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E8B461D8E06F70043100B /* AppDelegate.swift */; };
 		694E8B4C1D8E06F70043100B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694E8B4A1D8E06F70043100B /* Main.storyboard */; };
@@ -19,15 +21,23 @@
 		696D58601D8B75FD00A0FD48 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696D585F1D8B75FD00A0FD48 /* Animation.swift */; };
 		69AE76A21D8B6B00001B501E /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69AE76981D8B6B00001B501E /* Animation.framework */; };
 		69AE76A91D8B6B00001B501E /* Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 69AE769B1D8B6B00001B501E /* Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69B65BB71D93471800F28E35 /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69AE76981D8B6B00001B501E /* Animation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		694E8B561D8E071D0043100B /* PBXContainerItemProxy */ = {
+		691979D91D934933005463A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69AE768F1D8B6B00001B501E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 694E8B431D8E06F70043100B;
-			remoteInfo = DummyApplication;
+			remoteGlobalIDString = 69AE76971D8B6B00001B501E;
+			remoteInfo = Animation;
+		};
+		691979DB1D93494D005463A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69AE768F1D8B6B00001B501E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69AE76971D8B6B00001B501E;
+			remoteInfo = Animation;
 		};
 		694E8B611D8E132C0043100B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -44,6 +54,20 @@
 			remoteInfo = Animation;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		691979DF1D934A73005463A4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				691979DE1D934A73005463A4 /* Animation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		694E8B3E1D8DC1F00043100B /* InterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolationTests.swift; sourceTree = "<group>"; };
@@ -72,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				691979DD1D934A73005463A4 /* Animation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B65BB71D93471800F28E35 /* Animation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,10 +212,12 @@
 				694E8B401D8E06F70043100B /* Sources */,
 				694E8B411D8E06F70043100B /* Frameworks */,
 				694E8B421D8E06F70043100B /* Resources */,
+				691979DF1D934A73005463A4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				691979DC1D93494D005463A4 /* PBXTargetDependency */,
 			);
 			name = DummyApplication;
 			productName = DummyApplication;
@@ -207,6 +235,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				691979DA1D934933005463A4 /* PBXTargetDependency */,
 				694E8B621D8E132C0043100B /* PBXTargetDependency */,
 			);
 			name = AnimationUITests;
@@ -244,7 +273,6 @@
 			);
 			dependencies = (
 				69AE76A41D8B6B00001B501E /* PBXTargetDependency */,
-				694E8B571D8E071D0043100B /* PBXTargetDependency */,
 			);
 			name = AnimationTests;
 			productName = AnimationTests;
@@ -375,10 +403,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		694E8B571D8E071D0043100B /* PBXTargetDependency */ = {
+		691979DA1D934933005463A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 694E8B431D8E06F70043100B /* DummyApplication */;
-			targetProxy = 694E8B561D8E071D0043100B /* PBXContainerItemProxy */;
+			target = 69AE76971D8B6B00001B501E /* Animation */;
+			targetProxy = 691979D91D934933005463A4 /* PBXContainerItemProxy */;
+		};
+		691979DC1D93494D005463A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69AE76971D8B6B00001B501E /* Animation */;
+			targetProxy = 691979DB1D93494D005463A4 /* PBXContainerItemProxy */;
 		};
 		694E8B621D8E132C0043100B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -415,6 +448,7 @@
 		694E8B541D8E06F70043100B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DummyApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,6 +461,7 @@
 		694E8B551D8E06F70043100B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DummyApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
