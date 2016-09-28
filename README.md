@@ -7,7 +7,7 @@ Requires: Xcode 8, Swift 3.0
 ## Overview
 
  - Trigger animations that call a closure repeatedly (in sync with the display refresh)
-   for a dspecified duration, from which you can update on-screen objects.
+   for a specified duration, from which you can update on-screen objects.
  - Cancel/overwrite triggered animations by their identifier.
  - Add/remove instances conforming to the `Animatable` protocol to a list so they will
    receive an `update` call in sync with the display refresh.
@@ -74,7 +74,7 @@ immediately, calling your update code repeatedly (in sync with the display refre
 specified duration. Within the update closure, a `UIView` instance is updated by changing its
 `center` and `backgroundColor` properties. You can perform any calculations, and update
 whatever properties you like, including ones that aren't normally animatable using `UIKit`
-animnations. The interpolation operators are used to get an interpolated value between the
+animations. The interpolation operators are used to get an interpolated value between the
 start and end values, for example `10.0 <~~ 0.1 ~~> 20.0` would return a value 0.1 of the way
 from 10.0 to 20.0, i.e. 11.0. The `progress` parameter is used to perform linear interpolation
 of the `backgroundColor` and the `Curve.easeInEaseOut` object is used to convert the linear
