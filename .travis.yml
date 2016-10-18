@@ -4,3 +4,5 @@ xcode_project: Animation.xcodeproj
 xcode_scheme: Animation
 xcode_sdk: iphonesimulator10.0
 
+script:
+  - xcodebuild -project Animation.xcodeproj -scheme Animation -sdk iphonesimulator build test | xcpretty
