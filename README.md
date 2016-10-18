@@ -2,6 +2,8 @@
 
 A framework for performing animations on any properties using custom curves.
 
+[![Build Status](https://travis-ci.org/j-h-a/Animation.svg?branch=develop)](https://travis-ci.org/j-h-a/Animation)
+
 Requires: Xcode 8, Swift 3.0
 
 ## Overview
