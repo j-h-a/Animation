@@ -153,7 +153,7 @@ class CurveTests: XCTestCase {
 	}
 
 	func testCompositeCurveThrowsParameterTypeErrors() {
-		for char in "SLEIOHC".characters {
+		for char in "SLEIOADHC".characters {
 			do {
 				try _ = CompositeCurve(format: String(char), "string type not expected")
 				XCTFail("CompositeCurve init should have thrown invalidArgumentType for \(char)")
@@ -305,6 +305,16 @@ class CurveTests: XCTestCase {
 				i:  [-0.5, 0.0, 0.25, 0.49999, 0.75 , 1.0 , 1.5],
 				eO: [ 0.0, 0.0, 0.25, 0.99996, 0.875, 0.75, 0.5],
 				eG: [ 0.0, 0.0, 2.0 , 3.99999,-0.5  ,-0.5 ,-0.5]),
+			(fmt: "IO"   , args: [ (endPoint: 0.5, endValue: 1.0),
+			                       (endPoint: 1.0, endValue: 0.0) ],
+				i:  [-0.5, 0.0, 0.25 , 0.49999, 0.75 , 1.0, 1.5],
+				eO: [ 0.0, 0.0, 0.375, 0.99998, 0.375, 0.0, 0.0],
+				eG: [ 0.0, 0.0, 2.5  , 2.0    ,-2.5  , 0.0, 0.0]),
+			(fmt: "AD"   , args: [ (endPoint: 0.5, endValue: 1.0),
+			                       (endPoint: 1.0, endValue: 0.0) ],
+				i:  [-0.5, 0.0, 0.25, 0.49999, 0.75, 1.0, 1.5],
+				eO: [ 0.0, 0.0, 0.25, 0.99996, 0.25, 0.0, 0.0],
+				eG: [ 0.0, 0.0, 2.0 , 3.99999,-2.0 , 0.0, 0.0]),
 			]
 		for data in testData {
 			do {

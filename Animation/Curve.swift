@@ -210,6 +210,16 @@ open class CompositeCurve: Parametric {
 					throw ParseError.invalidArgumentType(message: "The parameter for 'O' must be (endPoint: Double, endValue: Double)")
 				}
 				try CompositeCurve.add(segment: Segment(endPoint: input.endPoint, endValue: input.endValue, curve: Curve.easeOut), to: &tmpSegments)
+			case "A": // ParabolicAcceleration
+				guard let input = args[idx] as? (endPoint: Double, endValue: Double) else {
+					throw ParseError.invalidArgumentType(message: "The parameter for 'A' must be (endPoint: Double, endValue: Double)")
+				}
+				try CompositeCurve.add(segment: Segment(endPoint: input.endPoint, endValue: input.endValue, curve: Curve.parabolicAcceleration), to: &tmpSegments)
+			case "D": // ParabolicDeceleration
+				guard let input = args[idx] as? (endPoint: Double, endValue: Double) else {
+					throw ParseError.invalidArgumentType(message: "The parameter for 'D' must be (endPoint: Double, endValue: Double)")
+				}
+				try CompositeCurve.add(segment: Segment(endPoint: input.endPoint, endValue: input.endValue, curve: Curve.parabolicDeceleration), to: &tmpSegments)
 			case "H": // Hermite
 				guard let input = args[idx] as? (endPoint: Double, endValue: Double, gradientIn: Double, gradientOut: Double) else {
 					throw ParseError.invalidArgumentType(message: "The parameter for 'H' must be (endPoint: Double, endValue: Double, gradientIn: Double, gradientOut: Double)")
@@ -290,15 +300,17 @@ open class CompositeCurve: Parametric {
 	The valid format characters and expected parameter types are listed below:
 
 	````
-	Format Character | Parameter Type
-	-----------------+-------------------------------------------------------------
-	S (StartValue)   | Double
-	L (Linear)       | (endPoint: Double, endValue: Double)
-	E (EaseInEaseOut)| (endPoint: Double, endValue: Double)
-	I (EaseIn)       | (endPoint: Double, endValue: Double)
-	O (EaseOut)      | (endPoint: Double, endValue: Double)
-	H (Hermite)      | (endPoint: Double, endValue: Double, gradientIn: Double, gradientOut: Double)
-	C (Curve)        | (endPoint: Double, endValue: Double, curve: Parametric)
+	Format Character          | Parameter Type
+	--------------------------+-------------------------------------------------------------
+	S (StartValue)            | Double
+	L (Linear)                | (endPoint: Double, endValue: Double)
+	E (EaseInEaseOut)         | (endPoint: Double, endValue: Double)
+	I (EaseIn)                | (endPoint: Double, endValue: Double)
+	O (EaseOut)               | (endPoint: Double, endValue: Double)
+	A (ParabolicAcceleration) | (endPoint: Double, endValue: Double)
+	D (ParabolicDeceleration) | (endPoint: Double, endValue: Double)
+	H (Hermite)               | (endPoint: Double, endValue: Double, gradientIn: Double, gradientOut: Double)
+	C (Curve)                 | (endPoint: Double, endValue: Double, curve: Parametric)
 	````
 
 	If the start-value for the first curve segment is specified with 'S', it must be the
