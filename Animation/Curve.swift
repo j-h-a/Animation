@@ -218,7 +218,7 @@ open class CompositeCurve: Parametric {
 				try CompositeCurve.add(segment: Segment(endPoint: input.endPoint, endValue: input.endValue, curve: hermite), to: &tmpSegments)
 			case "C": // Curve
 				guard let input = args[idx] as? (endPoint: Double, endValue: Double, curve: Parametric) else {
-					throw ParseError.invalidArgumentType(message: "The parameter for 'H' must be (endPoint: Double, endValue: Double, gradientIn: Double, gradientOut: Double)")
+					throw ParseError.invalidArgumentType(message: "The parameter for 'C' must be (endPoint: Double, endValue: Double, curve: Parametric)")
 				}
 				try CompositeCurve.add(segment: Segment(endPoint: input.endPoint, endValue: input.endValue, curve: input.curve), to: &tmpSegments)
 			default:
