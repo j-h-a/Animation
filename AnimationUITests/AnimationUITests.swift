@@ -14,7 +14,11 @@ class AnimationUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        XCUIApplication().launch()
+		if #available(iOS 9.0, *) {
+			XCUIApplication().launch()
+		} else {
+			// Fallback on earlier versions
+		}
     }
 
 	enum AnimationStateProgression {

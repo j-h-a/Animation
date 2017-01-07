@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690D73481E21AC2800CF2A2A /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690D73401E21A92F00CF2A2A /* Animation.framework */; };
+		690D73491E21AC2800CF2A2A /* Animation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690D73401E21A92F00CF2A2A /* Animation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69AE07C91E2020FC00329CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE07C81E2020FC00329CB8 /* AppDelegate.swift */; };
 		69AE07CB1E2020FC00329CB8 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE07CA1E2020FC00329CB8 /* MasterViewController.swift */; };
 		69AE07D01E2020FC00329CB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69AE07CE1E2020FC00329CB8 /* Main.storyboard */; };
@@ -15,10 +17,24 @@
 		69D3B6A01E206F570031080F /* CurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D3B69F1E206F570031080F /* CurveViewController.swift */; };
 		69D3B6A21E206F7B0031080F /* HermiteParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D3B6A11E206F7B0031080F /* HermiteParametersViewController.swift */; };
 		69D3B6A41E206FA30031080F /* CompositeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D3B6A31E206FA30031080F /* CompositeChooserViewController.swift */; };
-		69D3B6A71E20707D0031080F /* Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D3B6A61E20707D0031080F /* Animation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		690D734A1E21AC2800CF2A2A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				690D73491E21AC2800CF2A2A /* Animation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		690D73401E21A92F00CF2A2A /* Animation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Animation.framework; path = "../../Library/Developer/Xcode/DerivedData/Animation-hgzsrvlsjtwluqbsevxyojpbqyta/Build/Products/Debug-iphoneos/Animation.framework"; sourceTree = "<group>"; };
 		69AE07C51E2020FC00329CB8 /* AnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69AE07C81E2020FC00329CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69AE07CA1E2020FC00329CB8 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +45,6 @@
 		69D3B69F1E206F570031080F /* CurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveViewController.swift; sourceTree = "<group>"; };
 		69D3B6A11E206F7B0031080F /* HermiteParametersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HermiteParametersViewController.swift; sourceTree = "<group>"; };
 		69D3B6A31E206FA30031080F /* CompositeChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeChooserViewController.swift; sourceTree = "<group>"; };
-		69D3B6A61E20707D0031080F /* Animation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Animation.framework; path = "../../Library/Developer/Xcode/DerivedData/Animation-hgzsrvlsjtwluqbsevxyojpbqyta/Build/Products/Debug-iphonesimulator/Animation.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69D3B6A71E20707D0031080F /* Animation.framework in Frameworks */,
+				690D73481E21AC2800CF2A2A /* Animation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +95,7 @@
 		69D3B6A51E20707D0031080F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				69D3B6A61E20707D0031080F /* Animation.framework */,
+				690D73401E21A92F00CF2A2A /* Animation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,6 +110,7 @@
 				69AE07C11E2020FC00329CB8 /* Sources */,
 				69AE07C21E2020FC00329CB8 /* Frameworks */,
 				69AE07C31E2020FC00329CB8 /* Resources */,
+				690D734A1E21AC2800CF2A2A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,7 +243,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -271,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -284,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnimationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.me.abbott.AnimationDemo;
@@ -296,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnimationDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.me.abbott.AnimationDemo;
