@@ -15,12 +15,27 @@ class MasterViewController: UITableViewController {
 		super.viewWillAppear(animated)
 	}
 
-	func configure(curveController: CurveViewController, with cell: UITableViewCell) {
+	private func configure(curveController: CurveViewController, with cell: UITableViewCell) {
 		curveController.setCurrentCurve(cell.reuseIdentifier ?? "zero")
 		let curveName = cell.textLabel?.text
 		curveController.navigationItem.title = curveName != nil ? "Curve - " + curveName! : "Curve"
 		curveController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
 		curveController.navigationItem.leftItemsSupplementBackButton = true
+	}
+
+	private func createAnimatable(ofType type: String, withTitle title: String) -> UIViewController {
+		var animatableVC = UIViewController()
+
+		switch type {
+		case "foodHunters":
+			animatableVC = FoodHuntersViewController()
+		default: break
+		}
+
+		animatableVC.navigationItem.title = title
+		animatableVC.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+		animatableVC.navigationItem.leftItemsSupplementBackButton = true
+		return animatableVC
 	}
 
 	// MARK: - Segues
@@ -37,6 +52,12 @@ class MasterViewController: UITableViewController {
 			if let selectedCell = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!),
 				let cVC = (segue.destination as? UINavigationController)?.topViewController as? CurveViewController {
 				configure(curveController: cVC, with: selectedCell)
+			}
+		case SegueIdentifier.showAnimatable.rawValue:
+			if let selectedCell = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!),
+				let navCon = segue.destination as? UINavigationController {
+				let newRoot = createAnimatable(ofType: selectedCell.reuseIdentifier!, withTitle: selectedCell.textLabel!.text!)
+				navCon.setViewControllers([newRoot], animated: false)
 			}
 		default: break
 		}

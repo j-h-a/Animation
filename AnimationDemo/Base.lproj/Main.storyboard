@@ -309,14 +309,14 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Animatables" id="mHW-gB-vN4">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="example1" textLabel="1kP-m4-4lh" style="IBUITableViewCellStyleDefault" id="R2S-P1-tNW">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="foodHunters" textLabel="1kP-m4-4lh" style="IBUITableViewCellStyleDefault" id="R2S-P1-tNW">
                                         <rect key="frame" x="0.0" y="658" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R2S-P1-tNW" id="oGu-Ms-n4e">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Example 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1kP-m4-4lh">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Food Hunters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1kP-m4-4lh">
                                                     <frame key="frameInset" minX="15" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -326,6 +326,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="wVF-Ch-qET" kind="showDetail" identifier="showAnimatable" id="9Tb-U9-ILE"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="example2" textLabel="RSX-84-4RD" style="IBUITableViewCellStyleDefault" id="LdQ-Dk-Mra">
                                         <rect key="frame" x="0.0" y="702" width="375" height="44"/>
@@ -344,6 +347,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="wVF-Ch-qET" kind="showDetail" identifier="showAnimatable" id="dIN-zw-n7b"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="example3" textLabel="qMr-Po-zyc" style="IBUITableViewCellStyleDefault" id="4ne-3T-JGz">
                                         <rect key="frame" x="0.0" y="746" width="375" height="44"/>
@@ -362,6 +368,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="wVF-Ch-qET" kind="showDetail" identifier="showAnimatable" id="ggY-PT-KY1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -565,6 +574,19 @@
             </objects>
             <point key="canvasLocation" x="3477" y="-392"/>
         </scene>
+        <!--Animatable Nav-->
+        <scene sceneID="RNz-Sa-Gfa">
+            <objects>
+                <navigationController id="wVF-Ch-qET" userLabel="Animatable Nav" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QYQ-o3-dGS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DsE-sr-I7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649" y="107"/>
+        </scene>
         <!--Composite Chooser-->
         <scene sceneID="0V9-nJ-tT4">
             <objects>
@@ -638,7 +660,8 @@
         <image name="CurveButton_sproing" width="130" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1h3-aO-HfF"/>
-        <segue reference="HSS-bb-iO8"/>
+        <segue reference="nmf-9i-K60"/>
+        <segue reference="ggY-PT-KY1"/>
+        <segue reference="iVn-zk-ub4"/>
     </inferredMetricsTieBreakers>
 </document>
