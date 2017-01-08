@@ -10,6 +10,7 @@ import Foundation
 import QuartzCore
 
 public typealias AnimationUpdate = (Double) -> Bool
+public typealias AnimationUpdateToEnd = (Double) -> Void
 public typealias AnimationCompletion = (Bool) -> Void
 
 public protocol Animatable: class {
@@ -215,6 +216,27 @@ open class Animation
 	                         duration: Double,
 	                         update: @escaping AnimationUpdate) {
 		animate(identifier: identifier, duration: duration, update: update, completion: nil)
+	}
+
+	/** Convenience method, calls animate(identifier:duration:update:completion:)
+
+	This method uses the non-cancelable version of the update closure, that doesn't need a 'return' statement.
+	*/
+	open static func animateToEnd(identifier: String,
+	                              duration: Double,
+	                              update: @escaping AnimationUpdateToEnd,
+	                              completion: @escaping AnimationCompletion) {
+		animate(identifier: identifier, duration: duration, update: { p in update(p); return true }, completion: completion)
+	}
+
+	/** Convenience method, calls animate(identifier:duration:update:completion:) with a nil completion handler.
+
+	This method uses the non-cancelable version of the update closure, that doesn't need a 'return' statement.
+	*/
+	open static func animateToEnd(identifier: String,
+	                              duration: Double,
+	                              update: @escaping AnimationUpdateToEnd) {
+		animate(identifier: identifier, duration: duration, update: { p in update(p); return true }, completion: nil)
 	}
 
 	/** Cancels an animation that was triggered with the animate method.
