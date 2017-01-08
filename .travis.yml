@@ -5,11 +5,11 @@ xcode_scheme: Animation
 xcode_sdk: iphonesimulator9.0
 
 before_script:
-  - export IOS_SIMULATOR_UDID=`instruments -s | awk -F '[][]' '/iPhone SE \(9\.0\)/{print $2}'`
+  - export IOS_SIMULATOR_UDID=`instruments -s | awk -F '[][]' '/iPhone 6 \(9\.0\)/{print $2}'`
   - echo $IOS_SIMULATOR_UDID
   - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
 
 script:
-  - set -o pipefail && xcodebuild -project Animation.xcodeproj -scheme Animation -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone SE,OS=9.0' build test | xcpretty
+  - set -o pipefail && xcodebuild -project Animation.xcodeproj -scheme Animation -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' build test | xcpretty
 
 
