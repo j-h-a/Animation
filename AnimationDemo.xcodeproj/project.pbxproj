@@ -19,6 +19,7 @@
 		69D3B6A01E206F570031080F /* CurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D3B69F1E206F570031080F /* CurveViewController.swift */; };
 		69D3B6A21E206F7B0031080F /* HermiteParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D3B6A11E206F7B0031080F /* HermiteParametersViewController.swift */; };
 		69D3B6A41E206FA30031080F /* CompositeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D3B6A31E206FA30031080F /* CompositeChooserViewController.swift */; };
+		69E18DCB1E2324E70062B10E /* muncher.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 69E18DCA1E2324E70062B10E /* muncher.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		69D3B69F1E206F570031080F /* CurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveViewController.swift; sourceTree = "<group>"; };
 		69D3B6A11E206F7B0031080F /* HermiteParametersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HermiteParametersViewController.swift; sourceTree = "<group>"; };
 		69D3B6A31E206FA30031080F /* CompositeChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeChooserViewController.swift; sourceTree = "<group>"; };
+		69E18DCA1E2324E70062B10E /* muncher.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = muncher.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				69AE07CE1E2020FC00329CB8 /* Main.storyboard */,
 				69AE07D11E2020FC00329CB8 /* Assets.xcassets */,
 				690D734D1E22027F00CF2A2A /* starball.atlas */,
+				69E18DCA1E2324E70062B10E /* muncher.atlas */,
 				69AE07D61E2020FC00329CB8 /* Info.plist */,
 				69AE07C81E2020FC00329CB8 /* AppDelegate.swift */,
 				69AE07CA1E2020FC00329CB8 /* MasterViewController.swift */,
@@ -168,6 +171,7 @@
 			files = (
 				69AE07D51E2020FC00329CB8 /* LaunchScreen.storyboard in Resources */,
 				69AE07D21E2020FC00329CB8 /* Assets.xcassets in Resources */,
+				69E18DCB1E2324E70062B10E /* muncher.atlas in Resources */,
 				690D734E1E22027F00CF2A2A /* starball.atlas in Resources */,
 				69AE07D01E2020FC00329CB8 /* Main.storyboard in Resources */,
 			);
