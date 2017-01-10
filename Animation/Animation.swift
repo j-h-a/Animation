@@ -24,6 +24,7 @@ open class Animation
 	private var animationItems = [String : AnimationItem]()
 	private let displayLink: CADisplayLink?
 	private var animatables = [AnimatableProxy]()
+	private var previousTimestamp = 0.0
 
 	private class AnimationItem
 	{
@@ -68,7 +69,8 @@ open class Animation
 
 	private func update(_ link: CADisplayLink) -> Void {
 		// Calculate the time delta
-		let timeDelta = link.duration * Double(link.frameInterval)
+		let timeDelta = previousTimestamp == 0.0 ? link.duration : link.timestamp - previousTimestamp
+		previousTimestamp = link.timestamp
 
 		// Update the active animations
 		updateAnimationItems(by: timeDelta)
@@ -79,6 +81,7 @@ open class Animation
 		// Stop the animation updates if there are no current animations
 		if((animatables.count + animationItems.count) == 0) {
 			displayLink?.isPaused = true
+			previousTimestamp = 0.0
 		}
 	}
 
