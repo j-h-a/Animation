@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Demo application
 - Convenience versions of 'animate'
 - Format characters for parabolic acceleration/deceleration in composite curves
+- Add three new curve types to controll wrapping: clamp; loop; and pingPong
 - Lower the iOS deployment target to 8.0
 
 ### Fixed
