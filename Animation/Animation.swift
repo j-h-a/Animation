@@ -229,7 +229,7 @@ open class Animation
 	                              duration: Double,
 	                              update: @escaping AnimationUpdateToEnd,
 	                              completion: @escaping AnimationCompletion) {
-		animate(identifier: identifier, duration: duration, update: { p in update(p); return true }, completion: completion)
+		animate(identifier: identifier, duration: duration, update: { p in update(p); return true } as AnimationUpdate, completion: completion)
 	}
 
 	/** Convenience method, calls animate(identifier:duration:update:completion:) with a nil completion handler.
@@ -239,7 +239,7 @@ open class Animation
 	open static func animateToEnd(identifier: String,
 	                              duration: Double,
 	                              update: @escaping AnimationUpdateToEnd) {
-		animate(identifier: identifier, duration: duration, update: { p in update(p); return true }, completion: nil)
+		animate(identifier: identifier, duration: duration, update: { p in update(p); return true } as AnimationUpdate, completion: nil)
 	}
 
 	/** Cancels an animation that was triggered with the animate method.
