@@ -91,7 +91,10 @@ open class Curve: Parametric {
 
 	open static let zero                  = Curve(parametricFunction: {_ in return 0.0}) as Parametric
 	open static let one                   = Curve(parametricFunction: {_ in return 1.0}) as Parametric
-	open static let linear                = Curve(parametricFunction: {t in return t}) as Parametric
+	open static let linear                = Curve(parametricFunction: { $0 }) as Parametric
+	open static let clamp                 = Curve(parametricFunction: { $0 <= 0.0 ? 0.0 : $0 >= 1.0 ? 1.0 : $0 }) as Parametric
+	open static let loop                  = Curve(parametricFunction: { $0 - floor($0) }) as Parametric
+	open static let pingPong              = Curve(parametricFunction: { let (i, f) = modf(abs($0)); return Int(i) & 1 != 0 ? 1.0 - f : f}) as Parametric
 	open static let easeInEaseOut         = Curve(parametricFunction: curveEaseInEaseOut) as Parametric
 	open static let easeIn                = Curve(parametricFunction: curveEaseIn) as Parametric
 	open static let easeOut               = Curve(parametricFunction: curveEaseOut) as Parametric
