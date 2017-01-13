@@ -11,6 +11,8 @@
 		690D73491E21AC2800CF2A2A /* Animation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690D73401E21A92F00CF2A2A /* Animation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		690D734C1E21C17900CF2A2A /* FoodHuntersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690D734B1E21C17900CF2A2A /* FoodHuntersViewController.swift */; };
 		690D734E1E22027F00CF2A2A /* starball.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 690D734D1E22027F00CF2A2A /* starball.atlas */; };
+		696A17971E280F87002DDEA5 /* PulseButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696A17951E280F87002DDEA5 /* PulseButtonsViewController.swift */; };
+		696A17981E280F87002DDEA5 /* PulseButtonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696A17961E280F87002DDEA5 /* PulseButtonsViewController.xib */; };
 		69AE07C91E2020FC00329CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE07C81E2020FC00329CB8 /* AppDelegate.swift */; };
 		69AE07CB1E2020FC00329CB8 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE07CA1E2020FC00329CB8 /* MasterViewController.swift */; };
 		69AE07D01E2020FC00329CB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69AE07CE1E2020FC00329CB8 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		690D73401E21A92F00CF2A2A /* Animation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Animation.framework; path = "../../Library/Developer/Xcode/DerivedData/Animation-hgzsrvlsjtwluqbsevxyojpbqyta/Build/Products/Debug-iphoneos/Animation.framework"; sourceTree = "<group>"; };
 		690D734B1E21C17900CF2A2A /* FoodHuntersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodHuntersViewController.swift; sourceTree = "<group>"; };
 		690D734D1E22027F00CF2A2A /* starball.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = starball.atlas; sourceTree = "<group>"; };
+		696A17951E280F87002DDEA5 /* PulseButtonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseButtonsViewController.swift; sourceTree = "<group>"; };
+		696A17961E280F87002DDEA5 /* PulseButtonsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PulseButtonsViewController.xib; sourceTree = "<group>"; };
 		69AE07C51E2020FC00329CB8 /* AnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69AE07C81E2020FC00329CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69AE07CA1E2020FC00329CB8 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				69D3B6A11E206F7B0031080F /* HermiteParametersViewController.swift */,
 				69D3B6A31E206FA30031080F /* CompositeChooserViewController.swift */,
 				690D734B1E21C17900CF2A2A /* FoodHuntersViewController.swift */,
+				696A17951E280F87002DDEA5 /* PulseButtonsViewController.swift */,
+				696A17961E280F87002DDEA5 /* PulseButtonsViewController.xib */,
 			);
 			path = AnimationDemo;
 			sourceTree = "<group>";
@@ -169,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				696A17981E280F87002DDEA5 /* PulseButtonsViewController.xib in Resources */,
 				69AE07D51E2020FC00329CB8 /* LaunchScreen.storyboard in Resources */,
 				69AE07D21E2020FC00329CB8 /* Assets.xcassets in Resources */,
 				69E18DCB1E2324E70062B10E /* muncher.atlas in Resources */,
@@ -188,6 +195,7 @@
 				69D3B6A01E206F570031080F /* CurveViewController.swift in Sources */,
 				69D3B6A21E206F7B0031080F /* HermiteParametersViewController.swift in Sources */,
 				69AE07CB1E2020FC00329CB8 /* MasterViewController.swift in Sources */,
+				696A17971E280F87002DDEA5 /* PulseButtonsViewController.swift in Sources */,
 				69AE07C91E2020FC00329CB8 /* AppDelegate.swift in Sources */,
 				69D3B6A41E206FA30031080F /* CompositeChooserViewController.swift in Sources */,
 			);

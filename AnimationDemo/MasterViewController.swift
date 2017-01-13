@@ -29,6 +29,8 @@ class MasterViewController: UITableViewController {
 		switch type {
 		case "foodHunters":
 			animatableVC = FoodHuntersViewController()
+		case "pulseButtons":
+			animatableVC = PulseButtonsViewController()
 		default: break
 		}
 
