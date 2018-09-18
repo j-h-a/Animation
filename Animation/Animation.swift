@@ -63,7 +63,7 @@ open class Animation
 		displayLink = CADisplayLink(target: updater, selector: #selector(Updater.displayLinkUpdate(_:)))
 		displayLink?.isPaused = true
 		displayLink?.frameInterval = 1
-		displayLink?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+		displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.commonModes)
 		updater.animationInstance = self
 	}
 
