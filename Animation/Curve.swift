@@ -89,20 +89,20 @@ private func curveParabolicBounce(_ t: Double) -> Double {
 
 open class Curve: Parametric {
 
-	open static let zero                  = Curve(parametricFunction: {_ in return 0.0}) as Parametric
-	open static let one                   = Curve(parametricFunction: {_ in return 1.0}) as Parametric
-	open static let linear                = Curve(parametricFunction: { $0 }) as Parametric
-	open static let clamp                 = Curve(parametricFunction: { $0 <= 0.0 ? 0.0 : $0 >= 1.0 ? 1.0 : $0 }) as Parametric
-	open static let loop                  = Curve(parametricFunction: { $0 - floor($0) }) as Parametric
-	open static let pingPong              = Curve(parametricFunction: { let (i, f) = modf(abs($0)); return Int(i) & 1 != 0 ? 1.0 - f : f}) as Parametric
-	open static let easeInEaseOut         = Curve(parametricFunction: curveEaseInEaseOut) as Parametric
-	open static let easeIn                = Curve(parametricFunction: curveEaseIn) as Parametric
-	open static let easeOut               = Curve(parametricFunction: curveEaseOut) as Parametric
-	open static let bell                  = Curve(parametricFunction: curveBell) as Parametric
-	open static let parabolicAcceleration = Curve(parametricFunction: curveParabolicAcceleration) as Parametric
-	open static let parabolicDeceleration = Curve(parametricFunction: curveParabolicDeceleration) as Parametric
-	open static let parabolicPeak         = Curve(parametricFunction: curveParabolicPeak) as Parametric
-	open static let parabolicBounce       = Curve(parametricFunction: curveParabolicBounce) as Parametric
+	public static let zero                  = Curve(parametricFunction: {_ in return 0.0}) as Parametric
+	public static let one                   = Curve(parametricFunction: {_ in return 1.0}) as Parametric
+	public static let linear                = Curve(parametricFunction: { $0 }) as Parametric
+	public static let clamp                 = Curve(parametricFunction: { $0 <= 0.0 ? 0.0 : $0 >= 1.0 ? 1.0 : $0 }) as Parametric
+	public static let loop                  = Curve(parametricFunction: { $0 - floor($0) }) as Parametric
+	public static let pingPong              = Curve(parametricFunction: { let (i, f) = modf(abs($0)); return Int(i) & 1 != 0 ? 1.0 - f : f}) as Parametric
+	public static let easeInEaseOut         = Curve(parametricFunction: curveEaseInEaseOut) as Parametric
+	public static let easeIn                = Curve(parametricFunction: curveEaseIn) as Parametric
+	public static let easeOut               = Curve(parametricFunction: curveEaseOut) as Parametric
+	public static let bell                  = Curve(parametricFunction: curveBell) as Parametric
+	public static let parabolicAcceleration = Curve(parametricFunction: curveParabolicAcceleration) as Parametric
+	public static let parabolicDeceleration = Curve(parametricFunction: curveParabolicDeceleration) as Parametric
+	public static let parabolicPeak         = Curve(parametricFunction: curveParabolicPeak) as Parametric
+	public static let parabolicBounce       = Curve(parametricFunction: curveParabolicBounce) as Parametric
 
 	fileprivate let pFunc: (Double) -> Double
 
@@ -175,7 +175,7 @@ open class CompositeCurve: Parametric {
 
 	private class func internalInit(format: String, args: [Any]) throws -> (startValue: Double, segments: [Segment]) {
 
-		guard format.characters.count == args.count else {
+		guard format.count == args.count else {
 			throw ParseError.invalidNumberOfParameters
 		}
 
@@ -183,7 +183,7 @@ open class CompositeCurve: Parametric {
 		var tmpSegments = [Segment]()
 
 		var idx: Int = 0
-		for char in format.characters {
+		for char in format {
 			switch char {
 			case "S": // StartValue
 				guard idx == 0 else {
