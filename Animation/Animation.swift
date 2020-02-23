@@ -29,9 +29,9 @@ open class Animation
 	private class AnimationItem
 	{
 		open var time: Double
-		open let endTime: Double
-		open let update: AnimationUpdate
-		open let completion: AnimationCompletion?
+		public let endTime: Double
+		public let update: AnimationUpdate
+		public let completion: AnimationCompletion?
 
 		init(duration: Double, update: @escaping AnimationUpdate, completion: AnimationCompletion? = nil) {
 			self.time = 0
@@ -63,7 +63,7 @@ open class Animation
 		displayLink = CADisplayLink(target: updater, selector: #selector(Updater.displayLinkUpdate(_:)))
 		displayLink?.isPaused = true
 		displayLink?.frameInterval = 1
-		displayLink?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+		displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
 		updater.animationInstance = self
 	}
 
@@ -148,7 +148,7 @@ open class Animation
 	- parameters:
 	  - animatable: The animatable to add.
 	*/
-	open static func add(animatable: Animatable) {
+	public static func add(animatable: Animatable) {
 		remove(animatable: animatable)
 		sharedInstance.animatables.append(AnimatableProxy(target: animatable))
 		sharedInstance.displayLink?.isPaused = false
@@ -162,7 +162,7 @@ open class Animation
 	- parameters:
 	  - animatable: The animatable to remove.
 	*/
-	open static func remove(animatable: Animatable) {
+	public static func remove(animatable: Animatable) {
 		for proxy in sharedInstance.animatables {
 			if proxy.target === animatable {
 				proxy.target = nil
@@ -190,7 +190,7 @@ open class Animation
 	- seealso:
 	  - animate(identifier:duration:update:)
 	*/
-	open static func animate(identifier: String,
+	public static func animate(identifier: String,
 	                         duration: Double,
 	                         update: @escaping AnimationUpdate,
 	                         completion: AnimationCompletion?) {
@@ -215,7 +215,7 @@ open class Animation
 
 	This method allows the update closure to be specified with trailing closure syntax.
 	*/
-	open static func animate(identifier: String,
+	public static func animate(identifier: String,
 	                         duration: Double,
 	                         update: @escaping AnimationUpdate) {
 		animate(identifier: identifier, duration: duration, update: update, completion: nil)
@@ -225,7 +225,7 @@ open class Animation
 
 	This method uses the non-cancelable version of the update closure, that doesn't need a 'return' statement.
 	*/
-	open static func animateToEnd(identifier: String,
+	public static func animateToEnd(identifier: String,
 	                              duration: Double,
 	                              update: @escaping AnimationUpdateToEnd,
 	                              completion: @escaping AnimationCompletion) {
@@ -236,7 +236,7 @@ open class Animation
 
 	This method uses the non-cancelable version of the update closure, that doesn't need a 'return' statement.
 	*/
-	open static func animateToEnd(identifier: String,
+	public static func animateToEnd(identifier: String,
 	                              duration: Double,
 	                              update: @escaping AnimationUpdateToEnd) {
 		animate(identifier: identifier, duration: duration, update: { p in update(p); return true } as AnimationUpdate, completion: nil)
@@ -249,7 +249,7 @@ open class Animation
 	- parameters:
 	  - identifier: The identifier used to trigger the animation.
 	*/
-	open static func cancelAnimation(identifier: String) -> Void {
+	public static func cancelAnimation(identifier: String) -> Void {
 		let existingItem = sharedInstance.animationItems.removeValue(forKey: identifier)
 		if let completion = existingItem?.completion
 		{
